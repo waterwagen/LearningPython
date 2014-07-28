@@ -4,8 +4,11 @@ import sys
 
 # format strings
 eater = 'aardvark'
+number = 1
 eaten = 'ant'
-formattedStr = '{} eats {}'.format(eater, eaten)
+formattedStr = 'Method formatting: {} eats {} {}'.format(eater, number, eaten)
+print(formattedStr)
+formattedStr = 'Expression formatting: %s eats %d %s' % (eater, number, eaten)
 print(formattedStr)
 
 # remove whitepace
@@ -48,4 +51,22 @@ print('int form of "42" = {}'.format(int('42')))
 print('float form of "42" = {}'.format(float('42')))
 print('number code for "S" = {}'.format(ord('S')))
 print('character for number code 83 = {}'.format(chr(83)))
+
+# turn a string into a list
+S = 'SPAM'
+L = list(S)
+print('2 character in {} is equal to "P"? {}'.format(S, L[1] == 'P'))
+L[1] = 'x'
+L[2] = 'x'
+print('replaced middle characters with x = {}'.format(''.join(L)))
+
+# formatting with templating characteristics
+context = {'name':'Josh Taylor','age':34, 'married':'yes'}
+template = '%(name)s is %(age)d years old and his marriage status is %(married)s'
+print(template % context)
+# using variables as the context
+name = 'Josh Taylor'
+age = 34
+married = 'maybe'
+print(template % vars())
 
